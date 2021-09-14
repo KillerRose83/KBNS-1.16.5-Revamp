@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#D#",
+    "GNG",
+    "#D#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "kbns:refined_vibranium_powder"
+    },
+    "N": {
+      "item": "kbns:refined_vibranium_powder_block"
+    }
+  },
+  "result": {
+    "item": "kbns:vibranium_ingot",
+    "count": 1
+  }
+}

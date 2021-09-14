@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "kbns:items/reinforced_tool_rod"
+  }
+}

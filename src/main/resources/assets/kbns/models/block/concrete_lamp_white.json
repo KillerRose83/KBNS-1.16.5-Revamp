@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "kbns:blocks/concrete_lamp_white"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kbns:void_stone_powder"
+    },
+    {
+      "item": "kbns:void_stone_powder"
+    },
+    {
+      "item": "kbns:void_stone_powder"
+    },
+    {
+      "item": "kbns:void_stone_powder"
+    }
+  ],
+  "result":
+  {
+    "item": "kbns:void_stone",
+    "count": 1
+  }
+}

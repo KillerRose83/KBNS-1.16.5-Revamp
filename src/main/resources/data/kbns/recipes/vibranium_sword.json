@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "addition": {
+    "item": "kbns:vibranium_ingot"
+  },
+  "result": {
+    "item": "kbns:vibranium_sword"
+  }
+}

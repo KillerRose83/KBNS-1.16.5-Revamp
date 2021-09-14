@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "kbns:vibranium_powder"
+  },
+  "result": "kbns:refined_vibranium_powder",
+  "experience": 1,
+  "cookingtime": 200
+}

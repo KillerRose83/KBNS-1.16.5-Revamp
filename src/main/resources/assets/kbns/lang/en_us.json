@@ -1,0 +1,40 @@
+{
+  "itemGroup.kbns_tab": "KBNS Items",
+  "block.kbns.vibranium_ore": "Vibranium Ore",
+  "block.kbns.vibranium_block": "Block of Vibranium",
+  "block.kbns.void_stone": "Void Stone Lamp",
+  "block.kbns.refined_vibranium_powder_block": "Refined Vibranium Powder Block",
+  "block.kbns.concrete_lamp_white": "White Concrete Lamp",
+  "block.kbns.concrete_lamp_orange": "Orange Concrete Lamp",
+  "block.kbns.concrete_lamp_red": "Red Concrete Lamp",
+  "block.kbns.forge": "Vibranium Forge",
+
+
+
+  "biome.kbns.tattered_plains": "Tattered Plains Biome",
+  "biome.kbns.ea_sports": "EA SPORTS Biome",
+
+
+
+  "item.kbns.vibranium_powder": "Vibranium Powder",
+  "item.kbns.refined_vibranium_powder": "Refined Vibranium Powder",
+  "item.kbns.vibranium_ingot": "Vibranium Ingot",
+  "item.kbns.vibranium_sword": "Vibranium Sword",
+  "item.kbns.vibranium_pickaxe": "Vibranium Pickaxe",
+  "item.kbns.vibranium_axe": "Vibranium Axe",
+  "item.kbns.vibranium_hoe": "Vibranium Hoe",
+  "item.kbns.vibranium_shovel": "Vibranium Shovel",
+  "item.kbns.reinforced_tool_rod": "Reinforced Tool Rod",
+  "item.kbns.void_stone_powder": "Void Stone Powder",
+
+
+
+
+
+  "item.kbns.vibranium_helmet": "Vibranium Helmet",
+  "item.kbns.vibranium_chestplate": "Vibranium Chestplate",
+  "item.kbns.vibranium_leggings": "Vibranium Leggings",
+  "item.kbns.vibranium_boots": "Vibranium Boots"
+
+
+}

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "kbns:block/forge" }
+  }
+}

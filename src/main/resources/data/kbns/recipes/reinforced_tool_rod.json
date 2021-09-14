@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " s ",
+    " x ",
+    " s "
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    "s":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+  "result":
+  {
+    "item": "kbns:reinforced_tool_rod",
+    "count": 2
+  }
+}
