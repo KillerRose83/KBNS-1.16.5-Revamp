@@ -1,6 +1,7 @@
 package com.Killer.killersblocksnstuff.core.init;
 
 import com.Killer.killersblocksnstuff.*;
+import com.Killer.killersblocksnstuff.common.world.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.biome.*;
@@ -10,13 +11,20 @@ import net.minecraft.world.gen.feature.template.*;
 import net.minecraftforge.common.world.*;
 import net.minecraftforge.event.world.*;
 import net.minecraftforge.eventbus.api.*;
+import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.common.*;
+import net.minecraftforge.registries.*;
 
 import java.util.*;
 
 
 @Mod.EventBusSubscriber
 public class FeatureInit {
+
+
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, KillersBlocksNStuff.MOD_ID);
+    public static final RegistryObject<ExampleFeature> EXAMPLE_FEATURE = FEATURES.register("example_feature",
+            () -> new ExampleFeature(NoFeatureConfig.CODEC));
 
     private static final ArrayList<ConfiguredFeature<?, ?>> overworldOres = new ArrayList<ConfiguredFeature<?, ?>>();
     private static final ArrayList<ConfiguredFeature<?, ?>> netherOres = new ArrayList<ConfiguredFeature<?, ?>>();

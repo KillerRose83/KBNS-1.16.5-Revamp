@@ -161,7 +161,8 @@
     [
       "minecraft:patch_grass_forest",
       "minecraft:patch_sugar_cane",
-      "minecraft:spring_lava"
+      "minecraft:spring_lava",
+      "kbns:example_feature"
     ],
     [
       "minecraft:freeze_top_layer"
