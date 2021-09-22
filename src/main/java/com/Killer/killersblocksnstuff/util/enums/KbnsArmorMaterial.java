@@ -12,7 +12,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
 public enum KbnsArmorMaterial implements IArmorMaterial {
-   VIBRANIUM("kbns:vibranium", 1000, new int[]{5, 8, 11, 5}, 23, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.2F, () -> {
+   VIBRANIUM("kbns:vibranium", 41, new int[]{5, 8, 11, 5}, 23, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.2F, () -> {
       return Ingredient.of(ItemInit.VIBRANIUM_INGOT.get());
    });
 

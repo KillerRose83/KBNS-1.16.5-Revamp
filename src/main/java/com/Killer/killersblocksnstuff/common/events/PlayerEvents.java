@@ -21,7 +21,6 @@ public class PlayerEvents {
       if (event.getEntityLiving().getItemInHand(Hand.MAIN_HAND).getItem() == ItemInit.VIBRANIUM_SWORD.get() && event.getTarget().isAlive()) {
          LivingEntity target = (LivingEntity)event.getTarget();
          target.addEffect(new EffectInstance(Effects.WITHER, 200));
-         target.isGlowing();
       }
 
    }

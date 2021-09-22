@@ -9,7 +9,7 @@ import net.minecraft.item.crafting.Ingredient;
 
 
 public enum KbnsItemTier implements IItemTier {
-   VIBRANIUM(8, 2600, 12.0F, 6.0F, 35, () -> {
+   VIBRANIUM(8, 2600, 12.0F, 8.0F, 35, () -> {
       return Ingredient.of(ItemInit.VIBRANIUM_INGOT.get());
    });
 

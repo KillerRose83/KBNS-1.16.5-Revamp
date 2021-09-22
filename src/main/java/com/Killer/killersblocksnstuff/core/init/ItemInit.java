@@ -1,10 +1,8 @@
 package com.Killer.killersblocksnstuff.core.init;
 
 import com.Killer.killersblocksnstuff.KillersBlocksNStuff;
-import com.Killer.killersblocksnstuff.core.init.*;
 import com.Killer.killersblocksnstuff.util.enums.KbnsArmorMaterial;
 import com.Killer.killersblocksnstuff.util.enums.KbnsItemTier;
-import java.util.function.Supplier;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -36,11 +34,17 @@ public class ItemInit {
     public static final RegistryObject<Item> VIBRANIUM_CHESTPLATE;
     public static final RegistryObject<Item> VIBRANIUM_LEGGINGS;
     public static final RegistryObject<Item> VIBRANIUM_BOOTS;
+    public static final RegistryObject<Item> VIBRANIUM_APPLE;
+    public static final RegistryObject<Item> ENCHANTED_VIBRANIUM_APPLE;
+    public static final RegistryObject<Item> HASTEBAR;
 
     static {
         ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "kbns");
         VIBRANIUM_POWDER = ITEMS.register("vibranium_powder", ItemBase::new);
         VIBRANIUM_INGOT = ITEMS.register("vibranium_ingot", ItemBase::new);
+        VIBRANIUM_APPLE = ITEMS.register("vibranium_apple", VibraniumAppleFoodBase::new);
+        ENCHANTED_VIBRANIUM_APPLE = ITEMS.register("enchanted_vibranium_apple", EnchantedVibraniumApple::new);
+        HASTEBAR = ITEMS.register("haste_food", HasteFood::new);
         REINFORCED_TOOL_ROD = ITEMS.register("reinforced_tool_rod", ItemBase::new);
         VOID_STONE_POWDER = ITEMS.register("void_stone_powder", ItemBase::new);
         REFINED_VIBRANIUM_POWDER = ITEMS.register("refined_vibranium_powder", ItemBase::new);
