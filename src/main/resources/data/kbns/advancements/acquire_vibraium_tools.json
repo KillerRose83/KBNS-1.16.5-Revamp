@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "kbns:vibranium_pickaxe"
+    },
+    "title": "Tools Fit For A King!",
+    "description": "Get Vibranium Tools",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "kbns:vibranium_sword"
+          },
+          {
+            "item": "kbns:vibranium_pickaxe"
+          },
+          {
+            "item": "kbns:vibranium_shovel"
+          },
+          {
+            "item": "kbns:vibranium_axe"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 300
+  }
+}

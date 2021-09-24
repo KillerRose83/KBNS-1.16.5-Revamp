@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "kbns:haste_food"
+    },
+    "title": "Sweet Tooth",
+    "description": "Eat a Honey Apple",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:husbandry/balanced_diet",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "kbns:haste_food"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "kbns:vibranium_chestplate"
+    },
+    "title": "Cover Me In End Stuff!",
+    "description": "Get Vibranium Armor",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "kbns:vibranium_helmet"
+          },
+          {
+            "item": "kbns:vibranium_chestplate"
+          },
+          {
+            "item": "kbns:vibranium_leggings"
+          },
+          {
+            "item": "kbns:vibranium_boots"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 200
+  }
+}
