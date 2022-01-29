@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " x ",
+    "xgx",
+    " x "
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:orange_concrete"
+    },
+    "g":
+    {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "result":
+  {
+    "item": "killersblocksnstuff:concrete_lamp_orange",
+    "count": 1
+  }
+}
+

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "killersblocksnstuff:void_stone_powder"
+    },
+    {
+      "item": "killersblocksnstuff:void_stone_powder"
+    },
+    {
+      "item": "killersblocksnstuff:void_stone_powder"
+    },
+    {
+      "item": "killersblocksnstuff:void_stone_powder"
+    }
+  ],
+  "result":
+  {
+    "item": "killersblocksnstuff:void_stone",
+    "count": 1
+  }
+}

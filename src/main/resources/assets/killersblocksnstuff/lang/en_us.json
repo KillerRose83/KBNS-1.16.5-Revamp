@@ -1,0 +1,47 @@
+{
+  "itemGroup.killersblocksnstuff_tab": "killersblocksnstuff Items",
+  "block.killersblocksnstuff.vibranium_ore": "Vibranium Ore",
+  "block.killersblocksnstuff.vibranium_block": "Block of Vibranium",
+  "block.killersblocksnstuff.void_stone": "Void Stone Lamp",
+  "block.killersblocksnstuff.refined_vibranium_powder_block": "Refined Vibranium Powder Block",
+  "block.killersblocksnstuff.concrete_lamp_white": "White Concrete Lamp",
+  "block.killersblocksnstuff.concrete_lamp_orange": "Orange Concrete Lamp",
+  "block.killersblocksnstuff.concrete_lamp_red": "Red Concrete Lamp",
+  "block.killersblocksnstuff.forge": "Vibranium Forge",
+
+
+
+  "biome.killersblocksnstuff.tattered_plains": "Tattered Plains Biome",
+  "biome.killersblocksnstuff.ea_sports": "EA SPORTS Biome",
+
+
+
+  "item.killersblocksnstuff.vibranium_powder": "Vibranium Powder",
+  "item.killersblocksnstuff.refined_vibranium_powder": "Refined Vibranium Powder",
+  "item.killersblocksnstuff.vibranium_ingot": "Vibranium Ingot",
+  "item.killersblocksnstuff.vibranium_apple": "Vibranium Apple",
+  "item.killersblocksnstuff.enchanted_vibranium_apple": "Enchanted Vibranium Apple",
+  "item.killersblocksnstuff.honey_apple": "Honey Apple",
+  "item.killersblocksnstuff.vibranium_sword": "Vibranium Sword",
+  "item.killersblocksnstuff.vibranium_pickaxe": "Vibranium Pickaxe",
+  "item.killersblocksnstuff.vibranium_axe": "Vibranium Axe",
+  "item.killersblocksnstuff.vibranium_hoe": "Vibranium Hoe",
+  "item.killersblocksnstuff.vibranium_shovel": "Vibranium Shovel",
+  "item.killersblocksnstuff.reinforced_tool_rod": "Reinforced Tool Rod",
+  "item.killersblocksnstuff.void_stone_powder": "Void Stone Powder",
+
+
+
+
+
+  "item.killersblocksnstuff.vibranium_helmet": "Vibranium Helmet",
+  "item.killersblocksnstuff.vibranium_chestplate": "Vibranium Chestplate",
+  "item.killersblocksnstuff.vibranium_leggings": "Vibranium Leggings",
+  "item.killersblocksnstuff.vibranium_boots": "Vibranium Boots",
+
+  "tooltip.killersblocksnstuff.enchantedapple_shift":"Might give you a few buffs...",
+  "tooltip.killersblocksnstuff.haste_food_shift":"Sweet and speedy",
+  "tooltip.killersblocksnstuff.enchantedapple":"Hold \u00A7eSHIFT\u00A7r for more info",
+  "tooltip.killersblocksnstuff.haste_food":"Hold \u00A7eSHIFT\u00A7r for more info",
+  "entity.killersblocksnstuff.mini_boss": "Meta King"
+}

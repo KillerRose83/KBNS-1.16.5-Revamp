@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "killersblocksnstuff:refined_vibranium_powder_block"
+    }
+  ],
+  "result":
+  {
+    "item": "killersblocksnstuff:refined_vibranium_powder",
+    "count": 9
+  }
+}

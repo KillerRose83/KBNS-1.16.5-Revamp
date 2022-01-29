@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_helmet"
+  },
+  "addition": {
+    "item": "killersblocksnstuff:vibranium_ingot"
+  },
+  "result": {
+    "item": "killersblocksnstuff:vibranium_helmet"
+  }
+}

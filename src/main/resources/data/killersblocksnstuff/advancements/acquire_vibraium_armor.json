@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "killersblocksnstuff:vibranium_chestplate"
+    },
+    "title": "Cover Me In End Stuff!",
+    "description": "Get Vibranium Armor",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "killersblocksnstuff:vibranium_helmet"
+          },
+          {
+            "item": "killersblocksnstuff:vibranium_chestplate"
+          },
+          {
+            "item": "killersblocksnstuff:vibranium_leggings"
+          },
+          {
+            "item": "killersblocksnstuff:vibranium_boots"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 200
+  }
+}

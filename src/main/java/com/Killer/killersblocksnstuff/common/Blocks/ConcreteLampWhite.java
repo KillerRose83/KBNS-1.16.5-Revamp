@@ -10,8 +10,6 @@ public class ConcreteLampWhite extends Block {
               .strength(1.8F, 1.8F)
               .sound(SoundType.STONE)
               .harvestLevel(1).harvestTool(ToolType.PICKAXE)
-              .lightLevel((lightLevel) -> {
-         return 15;
-      }));
+              .lightLevel((lightLevel) -> { return 15; }));
    }
 }

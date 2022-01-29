@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "killersblocksnstuff:vibranium_block"
+    }
+  ],
+  "result":
+  {
+    "item": "killersblocksnstuff:vibranium_ingot",
+    "count": 9
+  }
+}

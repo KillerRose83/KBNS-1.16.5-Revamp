@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "killersblocksnstuff:enchanted_vibranium_apple"
+    },
+    "title": "Buff-et",
+    "description": "Eat an Enchanted Vibranium Apple",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:husbandry/balanced_diet",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "killersblocksnstuff:enchanted_vibranium_apple"
+        }
+      }
+    }
+  }
+}

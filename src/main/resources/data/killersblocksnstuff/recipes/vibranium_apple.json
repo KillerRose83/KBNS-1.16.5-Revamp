@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DDD",
+    "DND",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "killersblocksnstuff:vibranium_ingot"
+    },
+    "N": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "item": "killersblocksnstuff:vibranium_apple",
+    "count": 1
+  }
+}

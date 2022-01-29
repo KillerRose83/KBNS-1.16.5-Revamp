@@ -11,7 +11,7 @@ public class SurfaceBuilderInit {
    public static final RegistryObject<SurfaceBuilder<?>> KBNS_SURFACE;
 
    static {
-      SURFACE_BUILDERS = DeferredRegister.create(ForgeRegistries.SURFACE_BUILDERS, "kbns");
+      SURFACE_BUILDERS = DeferredRegister.create(ForgeRegistries.SURFACE_BUILDERS, "killersblocksnstuff");
       KBNS_SURFACE = SURFACE_BUILDERS.register("surface", () -> {
          return new KbnsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
       });

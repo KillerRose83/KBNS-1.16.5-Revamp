@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_hoe"
+  },
+  "addition": {
+    "item": "killersblocksnstuff:vibranium_ingot"
+  },
+  "result": {
+    "item": "killersblocksnstuff:vibranium_hoe"
+  }
+}

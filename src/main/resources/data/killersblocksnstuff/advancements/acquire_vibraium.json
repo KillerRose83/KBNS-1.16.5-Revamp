@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "killersblocksnstuff:vibranium_powder"
+    },
+    "title": "End Ore!?",
+    "description": "Get a hold Vibranium!",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "killersblocksnstuff:vibranium_powder",
+              "killersblocksnstuff:vibranium_ore"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
