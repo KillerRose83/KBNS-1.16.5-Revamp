@@ -26,9 +26,9 @@ public class HoneyApple extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()){
-            tooltip.add(new TranslationTextComponent("tooltip.kbns.haste_food_shift"));
+            tooltip.add(new TranslationTextComponent("tooltip.killersblocksnstuff.haste_food_shift"));
         } else {
-            tooltip.add(new TranslationTextComponent("tooltip.kbns.haste_food"));
+            tooltip.add(new TranslationTextComponent("tooltip.killersblocksnstuff.haste_food"));
         }
 
 

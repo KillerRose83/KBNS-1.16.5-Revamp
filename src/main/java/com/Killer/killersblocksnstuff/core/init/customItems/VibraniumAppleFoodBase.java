@@ -16,7 +16,7 @@ public class VibraniumAppleFoodBase extends Item {
                                 .effect(new EffectInstance(Effects.REGENERATION, 800, 1), 1.0F)
                                 .effect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 1200, 1), 1.0F)
                                 .effect(new EffectInstance(Effects.DAMAGE_BOOST, 2400, 1), 1.0F)
-                                .effect(new EffectInstance(Effects.ABSORPTION, 2400, 0), 1.0F).alwaysEat().build()));
+                                .effect(new EffectInstance(Effects.ABSORPTION, 2400, 1), 1.0F).alwaysEat().build()));
 
 
     }

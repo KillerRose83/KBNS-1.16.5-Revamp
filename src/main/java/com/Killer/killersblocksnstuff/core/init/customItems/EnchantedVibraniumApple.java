@@ -20,10 +20,10 @@ public class EnchantedVibraniumApple extends Item {
 
                                 .nutrition(5)
                                 .saturationMod(10.0F)
-                                .effect(new EffectInstance(Effects.REGENERATION, 800, 1), 1.0F)
-                                .effect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 2400, 1), 1.0F)
-                                .effect(new EffectInstance(Effects.DAMAGE_BOOST, 2400, 2), .5F)
-                                .effect(new EffectInstance(Effects.BLINDNESS, 300, 0), .01F)
+                                .effect(new EffectInstance(Effects.REGENERATION, 1800, 1), 1.0F)
+                                .effect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 12400, 1), 1.0F)
+                                .effect(new EffectInstance(Effects.DAMAGE_BOOST, 12400, 2), .5F)
+                                .effect(new EffectInstance(Effects.BLINDNESS, 100, 1), .7F)
                                 .effect(new EffectInstance(Effects.ABSORPTION, 3600, 2), 1.0F).alwaysEat().build()));
 
 
@@ -35,9 +35,9 @@ public class EnchantedVibraniumApple extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()){
-            tooltip.add(new TranslationTextComponent("tooltip.kbns.enchantedapple_shift"));
+            tooltip.add(new TranslationTextComponent("tooltip.killersblocksnstuff.enchantedapple_shift"));
         } else {
-            tooltip.add(new TranslationTextComponent("tooltip.kbns.enchantedapple"));
+            tooltip.add(new TranslationTextComponent("tooltip.killersblocksnstuff.enchantedapple"));
         }
 
 

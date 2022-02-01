@@ -74,6 +74,12 @@
         "weight": 5,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "killersblocksnstuff:mini_boss",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "creature": [
@@ -162,7 +168,8 @@
       "minecraft:patch_grass_forest",
       "minecraft:patch_sugar_cane",
       "minecraft:spring_lava",
-      "kbns:example_feature"
+      "killersblocksnstuff:example_feature",
+      "minecraft:trees_shattered_savanna"
     ],
     [
       "minecraft:freeze_top_layer"

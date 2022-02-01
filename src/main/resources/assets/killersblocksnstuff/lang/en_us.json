@@ -1,5 +1,4 @@
 {
-  "itemGroup.killersblocksnstuff_tab": "killersblocksnstuff Items",
   "block.killersblocksnstuff.vibranium_ore": "Vibranium Ore",
   "block.killersblocksnstuff.vibranium_block": "Block of Vibranium",
   "block.killersblocksnstuff.void_stone": "Void Stone Lamp",
@@ -10,10 +9,14 @@
   "block.killersblocksnstuff.forge": "Vibranium Forge",
 
 
-
   "biome.killersblocksnstuff.tattered_plains": "Tattered Plains Biome",
   "biome.killersblocksnstuff.ea_sports": "EA SPORTS Biome",
 
+
+  "entity.killersblocksnstuff.mini_boss": "Meta King",
+
+
+  "itemGroup.killersblocksnstuff_tab": "KBNS Items",
 
 
   "item.killersblocksnstuff.vibranium_powder": "Vibranium Powder",
@@ -31,17 +34,16 @@
   "item.killersblocksnstuff.void_stone_powder": "Void Stone Powder",
 
 
-
-
-
   "item.killersblocksnstuff.vibranium_helmet": "Vibranium Helmet",
   "item.killersblocksnstuff.vibranium_chestplate": "Vibranium Chestplate",
   "item.killersblocksnstuff.vibranium_leggings": "Vibranium Leggings",
   "item.killersblocksnstuff.vibranium_boots": "Vibranium Boots",
 
-  "tooltip.killersblocksnstuff.enchantedapple_shift":"Might give you a few buffs...",
-  "tooltip.killersblocksnstuff.haste_food_shift":"Sweet and speedy",
-  "tooltip.killersblocksnstuff.enchantedapple":"Hold \u00A7eSHIFT\u00A7r for more info",
-  "tooltip.killersblocksnstuff.haste_food":"Hold \u00A7eSHIFT\u00A7r for more info",
-  "entity.killersblocksnstuff.mini_boss": "Meta King"
+
+  "tooltip.killersblocksnstuff.enchantedapple_shift":"§7Might give you a few buffs...",
+  "tooltip.killersblocksnstuff.haste_food_shift":"§7Sweet and speedy",
+  "tooltip.killersblocksnstuff.enchantedapple":"§7Hold \u00A7eSHIFT\u00A77 for more info",
+  "tooltip.killersblocksnstuff.haste_food":"§7Hold \u00A7eSHIFT\u00A77 for more info",
+  "tooltip.killersblocksnstuff.sword":"\u00A77Sets targets on fire as well as weakening them. But be careful you might suffer the same fate... §7Hold §eSHIFT§r for more info",
+  "tooltip.killersblocksnstuff.sword_shift":"§7Forged from a mysterious material found in the depths of the abyss..."
 }

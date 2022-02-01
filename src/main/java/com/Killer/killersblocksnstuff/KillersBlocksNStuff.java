@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 public class KillersBlocksNStuff {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "killersblocksnstuff";
-    public static final ItemGroup KBNS_TAB = new KbnsItemGroup("kbns_tab");
+    public static final ItemGroup KBNS_TAB = new KbnsItemGroup("killersblocksnstuff_tab");
 
     public KillersBlocksNStuff() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
