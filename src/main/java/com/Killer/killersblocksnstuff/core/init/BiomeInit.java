@@ -1,6 +1,8 @@
 package com.Killer.killersblocksnstuff.core.init;
 
 import java.util.function.Supplier;
+
+import com.Killer.killersblocksnstuff.*;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -17,7 +19,7 @@ public class BiomeInit {
    public static RegistryKey TATTERED_PLAINS;
 
    public static RegistryKey registerBiome(String biomeName) {
-      return RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("kbns", biomeName));
+      return RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(KillersBlocksNStuff.MOD_ID, biomeName));
    }
 
    public static RegistryObject createBiome(String biomeName, Supplier biome) {
@@ -29,7 +31,7 @@ public class BiomeInit {
    }
 
    static {
-      BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, "kbns");
+      BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, KillersBlocksNStuff.MOD_ID);
       createBiome("tattered_plains", BiomeMaker::theVoidBiome);
       TATTERED_PLAINS = registerBiome("tattered_plains");
    }

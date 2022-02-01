@@ -1,6 +1,7 @@
 package com.Killer.killersblocksnstuff.common.events;
 
 
+import com.Killer.killersblocksnstuff.*;
 import com.Killer.killersblocksnstuff.core.init.*;
 import com.Killer.killersblocksnstuff.entity.*;
 import com.Killer.killersblocksnstuff.entity.customEntities.*;
@@ -17,15 +18,9 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @Mod.EventBusSubscriber(
-   modid = "kbns",
+   modid = KillersBlocksNStuff.MOD_ID,
    bus = Bus.FORGE
 )
 public class PlayerEvents {
-   @SubscribeEvent
-   public static void onDamageEntity(AttackEntityEvent event) {
-      if (event.getEntityLiving().getItemInHand(Hand.MAIN_HAND).getItem() == ItemInit.VIBRANIUM_SWORD.get() && event.getTarget().isAlive()) {
-         LivingEntity target = (LivingEntity)event.getTarget();
-         target.addEffect(new EffectInstance(Effects.WITHER, 200));
-      }
-   }
+
 }

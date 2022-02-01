@@ -226,8 +226,8 @@ public class MiniBossModel <T extends MiniBossEntity> extends EntityModel<T> {
     public void setupAnim(T p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
         this.head.xRot = p_225597_6_ * ((float)Math.PI / 180F);
         this.head.yRot = p_225597_5_ * ((float)Math.PI / 180F);
-        this.rightLeg.xRot = MathHelper.cos(p_225597_2_ * 0.6662F + (float)Math.PI) * 1.4F * p_225597_3_;
-        this.leftLeg.xRot = MathHelper.cos(p_225597_2_ * 0.6662F) * 1.4F * p_225597_3_;
+        this.rightLeg.xRot = MathHelper.cos(p_225597_2_ * 0.6762F + (float)Math.PI) * 1.4F * p_225597_3_;
+        this.leftLeg.xRot = MathHelper.cos(p_225597_2_ * 0.6762F) * 1.4F * p_225597_3_;
     }
 
 

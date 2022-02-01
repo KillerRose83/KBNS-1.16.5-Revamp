@@ -26,7 +26,7 @@ public class ItemInit {
     public static final RegistryObject<Item> CONCRETE_LAMP_WHITE_ITEM = ITEMS.register("concrete_lamp_white", () -> { return new BlockItemBase((Block)BlockInit.CONCRETE_LAMP_WHITE.get()); });
     public static final RegistryObject<Item> CONCRETE_LAMP_ORANGE_ITEM = ITEMS.register("concrete_lamp_orange", () -> { return new BlockItemBase((Block)BlockInit.CONCRETE_LAMP_ORANGE.get()); });
     public static final RegistryObject<Item> CONCRETE_LAMP_RED_ITEM = ITEMS.register("concrete_lamp_red", () -> { return new BlockItemBase((Block)BlockInit.CONCRETE_LAMP_RED.get()); });
-    public static final RegistryObject<Item> VIBRANIUM_SWORD = ITEMS.register("vibranium_sword", () -> { return new SwordItem(KbnsItemTier.VIBRANIUM, 1, -2.2F, (new Properties()).tab(KillersBlocksNStuff.KBNS_TAB)); });
+    public static final RegistryObject<Item> VIBRANIUM_SWORD = ITEMS.register("vibranium_sword", () -> { return new VibraniumSword(KbnsItemTier.VIBRANIUM, 1, -2.2F, (new Properties()).tab(KillersBlocksNStuff.KBNS_TAB)); });
     public static final RegistryObject<Item> VIBRANIUM_PICKAXE = ITEMS.register("vibranium_pickaxe", () -> { return new PickaxeItem(KbnsItemTier.VIBRANIUM, -2, -2.2F, (new Properties()).tab(KillersBlocksNStuff.KBNS_TAB)); });
     public static final RegistryObject<Item> VIBRANIUM_AXE = ITEMS.register("vibranium_axe", () -> { return new AxeItem(KbnsItemTier.VIBRANIUM, 2.0F, -2.9F, (new Properties()).tab(KillersBlocksNStuff.KBNS_TAB)); });
     public static final RegistryObject<Item> VIBRANIUM_SHOVEL = ITEMS.register("vibranium_shovel", () -> { return new ShovelItem(KbnsItemTier.VIBRANIUM, -3.0F, -2.4F, (new Properties()).tab(KillersBlocksNStuff.KBNS_TAB)); });
