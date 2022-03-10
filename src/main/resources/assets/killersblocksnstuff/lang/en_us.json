@@ -42,11 +42,13 @@
   "item.killersblocksnstuff.vibranium_leggings": "Vibranium Leggings",
   "item.killersblocksnstuff.vibranium_boots": "Vibranium Boots",
 
-
   "tooltip.killersblocksnstuff.enchantedapple_shift":"§7Might give you a few buffs...",
   "tooltip.killersblocksnstuff.haste_food_shift":"§7Sweet and speedy",
   "tooltip.killersblocksnstuff.enchantedapple":"§7Hold \u00A7eSHIFT\u00A77 for more info",
   "tooltip.killersblocksnstuff.haste_food":"§7Hold \u00A7eSHIFT\u00A77 for more info",
   "tooltip.killersblocksnstuff.sword":"\u00A77Sets targets on fire as well as weakening them. But be careful you might suffer the same fate... §7Hold §eSHIFT§r for more info",
   "tooltip.killersblocksnstuff.sword_shift":"§7Forged from a mysterious material found in the depths of the abyss..."
+
+
+
 }

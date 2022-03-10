@@ -6,6 +6,8 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
+import net.minecraft.item.*;
+import net.minecraft.state.properties.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
@@ -61,10 +63,14 @@ public class VibraniumForgeBlock extends Block implements ITickableTileEntity {
             return KbnsTileEntities.VIBRANIUM_FORGE_TILE.get().create();
         }
 
+
+
         @Override
         public boolean hasTileEntity (BlockState state){
             return true;
         }
+
+
 
 
 

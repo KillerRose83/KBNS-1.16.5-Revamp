@@ -1,6 +1,7 @@
 package com.Killer.killersblocksnstuff.container;
 
 import com.Killer.killersblocksnstuff.core.init.*;
+import com.Killer.killersblocksnstuff.util.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.*;
@@ -35,7 +36,53 @@ public class VibraniumForgeContainer extends Container {
                 addSlot(new SlotItemHandler(h, 2, 116, 35));
             });
         }
+        trackPower();
     }
+
+
+
+    // Setup syncing of power from server to client so that the GUI can show the amount of power in the block
+    private void trackPower() {
+        // Unfortunately on a dedicated server ints are actually truncated to short so we need
+        // to split our integer here (split our 32 bit integer into two 16 bit integers)
+        addDataSlot(new IntReferenceHolder() {
+            @Override
+            public int get() {
+                return getEnergy() & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+                tileEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
+                    int energyStored = h.getEnergyStored() & 0xffff0000;
+                    ((CustomEnergyStorage)h).setEnergy(energyStored + (value & 0xffff));
+                });
+            }
+        });
+        addDataSlot(new IntReferenceHolder() {
+            @Override
+            public int get() {
+                return (getEnergy() >> 16) & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+                tileEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
+                    int energyStored = h.getEnergyStored() & 0x0000ffff;
+                    ((CustomEnergyStorage)h).setEnergy(energyStored | (value << 16));
+                });
+            }
+        });
+    }
+
+    public int getEnergy() {
+        return tileEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+    }
+
+
+
+
+
 
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
