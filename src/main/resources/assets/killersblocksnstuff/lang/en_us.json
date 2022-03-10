@@ -6,7 +6,7 @@
   "block.killersblocksnstuff.concrete_lamp_white": "White Concrete Lamp",
   "block.killersblocksnstuff.concrete_lamp_orange": "Orange Concrete Lamp",
   "block.killersblocksnstuff.concrete_lamp_red": "Red Concrete Lamp",
-  "block.killersblocksnstuff.forge": "Vibranium Forge",
+  "block.killersblocksnstuff.vibranium_forge": "Forge",
 
 
   "biome.killersblocksnstuff.tattered_plains": "Tattered Plains Biome",
@@ -17,6 +17,9 @@
 
 
   "itemGroup.killersblocksnstuff_tab": "KBNS Items",
+
+
+  "screen.killersblocksnstuff.vibranium_forge":"Forge",
 
 
   "item.killersblocksnstuff.vibranium_powder": "Vibranium Powder",

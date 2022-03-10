@@ -1,9 +1,14 @@
 package com.Killer.killersblocksnstuff;
 
 
+import com.Killer.killersblocksnstuff.common.tileEntity.*;
+import com.Killer.killersblocksnstuff.container.*;
 import com.Killer.killersblocksnstuff.core.init.*;
+import com.Killer.killersblocksnstuff.data.recipes.*;
 import com.Killer.killersblocksnstuff.entity.*;
 import com.Killer.killersblocksnstuff.entity.render.*;
+import com.Killer.killersblocksnstuff.container.screen.*;
+import net.minecraft.client.gui.*;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +41,9 @@ public class KillersBlocksNStuff {
         BiomeInit.registerBiomes();
         MinecraftForge.EVENT_BUS.register(this);
         KbnsEntityTypes.register(bus);
+        KbnsContainers.register(bus);
+        KbnsTileEntities.register(bus);
+        KbnsRecipeTypes.register(bus);
     }
 
     private void setup(FMLCommonSetupEvent event) {
@@ -46,7 +54,9 @@ public class KillersBlocksNStuff {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            ScreenManager.register(KbnsContainers.VIBRANIUM_FORGE_CONTAINER.get(), VibraniumForgeScreen::new);
         });
+
         RenderingRegistry.registerEntityRenderingHandler(KbnsEntityTypes.MINI_BOSS.get(), MiniBossRenderer::new);
     }
 }

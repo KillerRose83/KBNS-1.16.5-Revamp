@@ -1,0 +1,14 @@
+{
+  "type": "killersblocksnstuff:forge",
+  "ingredients": [
+    {
+      "item": "killersblocksnstuff:void_stone_powder"
+    },
+    {
+      "item": "killersblocksnstuff:vibranium_powder"
+    }
+  ],
+  "output": {
+    "item": "killersblocksnstuff:vibranium_ingot"
+  }
+}

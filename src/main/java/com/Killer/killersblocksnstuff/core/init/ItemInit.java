@@ -13,7 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "killersblocksnstuff");
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, KillersBlocksNStuff.MOD_ID);
     public static final RegistryObject<Item> VIBRANIUM_POWDER = ITEMS.register("vibranium_powder", ItemBase::new);
     public static final RegistryObject<Item> VIBRANIUM_INGOT = ITEMS.register("vibranium_ingot", ItemBase::new);
     public static final RegistryObject<Item> REINFORCED_TOOL_ROD = ITEMS.register("reinforced_tool_rod", ItemBase::new);
@@ -21,6 +21,8 @@ public class ItemInit {
     public static final RegistryObject<Item> REFINED_VIBRANIUM_POWDER = ITEMS.register("refined_vibranium_powder", ItemBase::new);
     public static final RegistryObject<Item> VIBRANIUM_ORE_ITEM = ITEMS.register("vibranium_ore", () -> { return new BlockItemBase((Block)BlockInit.VIBRANIUM_ORE.get()); });
     public static final RegistryObject<Item> VIBRANIUM_BLOCK_ITEM = ITEMS.register("vibranium_block", () -> { return new BlockItemBase((Block)BlockInit.VIBRANIUM_BLOCK.get()); });
+
+    public static final RegistryObject<Item> VIBRANIUM_FORGE_BLOCK_ITEM = ITEMS.register("vibranium_forge", () -> { return new BlockItemBase((Block)BlockInit.VIBRANIUM_FORGE.get()); });
     public static final RegistryObject<Item> REFINED_VIBRANIUM_POWDER_BLOCK_ITEM = ITEMS.register("refined_vibranium_powder_block", () -> { return new BlockItemBase((Block)BlockInit.REFINED_VIBRANIUM_POWDER_BLOCK.get()); });
     public static final RegistryObject<Item> VOID_STONE_ITEM = ITEMS.register("void_stone", () -> { return new BlockItemBase((Block)BlockInit.VOID_STONE.get()); });
     public static final RegistryObject<Item> CONCRETE_LAMP_WHITE_ITEM = ITEMS.register("concrete_lamp_white", () -> { return new BlockItemBase((Block)BlockInit.CONCRETE_LAMP_WHITE.get()); });
