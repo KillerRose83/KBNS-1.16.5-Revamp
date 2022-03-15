@@ -39,7 +39,7 @@ public class ItemInit {
     public static final RegistryObject<Item> VIBRANIUM_BOOTS = ITEMS.register("vibranium_boots", () -> { return new ArmorItem(KbnsArmorMaterial.VIBRANIUM, EquipmentSlotType.FEET, (new Properties()).tab(KillersBlocksNStuff.KBNS_TAB)); });
     public static final RegistryObject<Item> VIBRANIUM_APPLE = ITEMS.register("vibranium_apple", VibraniumAppleFoodBase::new);
     public static final RegistryObject<Item> ENCHANTED_VIBRANIUM_APPLE = ITEMS.register("enchanted_vibranium_apple", EnchantedVibraniumApple::new);
-    public static final RegistryObject<Item> HONEYAPPLE = ITEMS.register("honey_apple", HoneyApple::new);
+    public static final RegistryObject<Item> HONEY_APPLE = ITEMS.register("honey_apple", HoneyApple::new);
 
 }
 

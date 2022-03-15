@@ -1,6 +1,8 @@
 package com.Killer.killersblocksnstuff.container;
 
+import com.Killer.killersblocksnstuff.common.tileEntity.*;
 import com.Killer.killersblocksnstuff.core.init.*;
+import com.Killer.killersblocksnstuff.data.recipes.*;
 import com.Killer.killersblocksnstuff.util.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
@@ -81,7 +83,9 @@ public class VibraniumForgeContainer extends Container {
 
 
 
-
+    protected int getCraftingTime(VibraniumForgeRecipe recipe){
+        return recipe.craftTime;
+    }
 
 
 
@@ -166,5 +170,7 @@ public class VibraniumForgeContainer extends Container {
         sourceSlot.onTake(playerEntity, sourceStack);
         return copyOfSourceStack;
     }
+
+
 }
 

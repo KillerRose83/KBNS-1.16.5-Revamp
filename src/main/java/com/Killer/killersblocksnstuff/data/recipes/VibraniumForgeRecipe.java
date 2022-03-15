@@ -16,32 +16,33 @@ public class VibraniumForgeRecipe implements IVibraniumForgeRecipe {
 
     private final ResourceLocation id;
     private final ItemStack output;
-    private final NonNullList<Ingredient> recipeItems;
+    public int craftTime;
+    private final NonNullList<Ingredient> ingredients;
 
-    public VibraniumForgeRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
+    public VibraniumForgeRecipe(ResourceLocation id, ItemStack output, int craftTime, NonNullList<Ingredient> ingredients) {
         this.id = id;
         this.output = output;
-        this.recipeItems = recipeItems;
+        this.craftTime = craftTime;
+        this.ingredients = ingredients;
     }
 
 
     @Override
     public boolean matches(IInventory inv, World worldIn) {
-        // Checks for correct focus (Glass Pane)
-        if(recipeItems.get(0).test(inv.getItem(0))) {
-                return recipeItems.get(1).test(inv.getItem(1));
-
+        if(ingredients.get(0).test(inv.getItem(0))) {
+            return ingredients.get(1).test(inv.getItem(1));
         }
+
         return false;
     }
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return recipeItems;
+        return ingredients;
     }
 
     @Override
-    public ItemStack assemble(IInventory p_77572_1_) {
+    public ItemStack assemble(IInventory inv) {
         return output;
     }
 
@@ -51,13 +52,16 @@ public class VibraniumForgeRecipe implements IVibraniumForgeRecipe {
     }
 
     @Override
-    public ItemStack getToastSymbol() {
+    public ResourceLocation getId() {
+        return id;
+    }
+
+    public ItemStack getIcon() {
         return new ItemStack(BlockInit.VIBRANIUM_FORGE.get());
     }
 
-    @Override
-    public ResourceLocation getId() {
-        return null;
+    public int getCraftTime() {
+        return craftTime;
     }
 
     @Override
@@ -66,52 +70,54 @@ public class VibraniumForgeRecipe implements IVibraniumForgeRecipe {
     }
 
     public static class VibraniumForgeRecipeType implements IRecipeType<VibraniumForgeRecipe> {
+
         @Override
         public String toString() {
             return VibraniumForgeRecipe.TYPE_ID.toString();
         }
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
-            implements IRecipeSerializer<VibraniumForgeRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<VibraniumForgeRecipe> {
 
         @Override
         public VibraniumForgeRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            ItemStack output = ShapedRecipe.itemFromJson(JSONUtils.convertToJsonObject(json, "output"));
+            ItemStack output = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(json, "output"));
+            int craftTime = JSONUtils.getAsInt(json, "craftTime");
+            JsonArray ingredients = JSONUtils.getAsJsonArray(json, "ingredients");
 
-
-            JsonArray ingredients = JSONUtils.convertToJsonArray(json, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            NonNullList<Ingredient> inputs = NonNullList.create();
+            for (JsonElement element : ingredients) {
+                inputs.add(Ingredient.fromJson(element));
             }
 
-            return new VibraniumForgeRecipe(recipeId, output,
-                    inputs);
+            return new VibraniumForgeRecipe(recipeId, output, craftTime, inputs);
         }
+
         @Nullable
         @Override
         public VibraniumForgeRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(buffer));
+            Ingredient[] ings = new Ingredient[buffer.readVarInt()];
+            NonNullList<Ingredient> inputs = NonNullList.withSize(2,Ingredient.EMPTY);
+            for (int i = 0; i < ings.length; i++) {
+                inputs.add(i, ings[i]);
             }
 
             ItemStack output = buffer.readItem();
-            return new VibraniumForgeRecipe(recipeId, output,
-                    inputs);
+            int craftTime = buffer.readVarInt();
+            return new VibraniumForgeRecipe(recipeId, output, craftTime, inputs);
         }
 
         @Override
-        public void toNetwork (PacketBuffer buffer, VibraniumForgeRecipe recipe) {
-            buffer.writeInt(recipe.getIngredients().size());
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.toNetwork(buffer);
+        public void toNetwork(PacketBuffer buffer, VibraniumForgeRecipe recipe) {
+            buffer.writeVarInt(recipe.getIngredients().size());
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                ingredient.toNetwork(buffer);
             }
-            buffer.writeItemStack(recipe.output, false);
+            buffer.writeItemStack(recipe.getResultItem(), false);
+            buffer.writeVarInt(recipe.getCraftTime());
         }
     }
+
+
 }
 
