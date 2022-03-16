@@ -7,6 +7,8 @@ import net.minecraft.block.*;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
+import net.minecraft.network.*;
+import net.minecraft.network.play.server.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraftforge.common.capabilities.*;
@@ -22,8 +24,10 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
 
     private ItemStackHandler itemHandler = createHandler();
     private CustomEnergyStorage energyStorage = createEnergy();
-    private int craftTime;
     private float progress;
+    private float energyStored;
+    private float energyUsePerTick;
+
 
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
     private LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
@@ -51,15 +55,34 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
         energyStorage.deserializeNBT(nbt.getCompound("energy"));
 
         super.load(state, nbt);
+        this.progress = nbt.getInt("Progress");
+
     }
 
     @Override
-    public CompoundNBT save(CompoundNBT compound) {
-        compound.put("inv", itemHandler.serializeNBT());
-        compound.put("energy", energyStorage.serializeNBT());
+    public CompoundNBT save(CompoundNBT nbt) {
+        nbt.put("inv", itemHandler.serializeNBT());
+        nbt.put("energy", energyStorage.serializeNBT());
+        nbt.putInt("Progress", (int) this.progress);
 
 
-        return super.save(compound);
+        return super.save(nbt);
+    }
+
+
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket packet) {
+        super.onDataPacket(net, packet);
+        CompoundNBT tags = packet.getTag();
+        this.progress = tags.getInt("Progress");
+
+    }
+
+    @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT nbt = super.getUpdateTag();
+        nbt.putInt("Progress", (int) this.progress);
+        return nbt;
     }
 
 
@@ -111,38 +134,34 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
 
     public void craft() {
 
-        if (KbnsRecipeTypes.FORGE_RECIPE != null) {
-            // Process
-            craftTime = 100;
-            progress += 1;
+        Inventory inv = new Inventory(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inv.setItem(i, itemHandler.getStackInSlot(i));
         }
-        if (progress >= craftTime) {
+        Optional<VibraniumForgeRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(KbnsRecipeTypes.FORGE_RECIPE, inv, level);
 
-
-            Inventory inv = new Inventory(itemHandler.getSlots());
-            for (int i = 0; i < itemHandler.getSlots(); i++) {
-                inv.setItem(i, itemHandler.getStackInSlot(i));
+        recipe.ifPresent(iRecipe -> {
+            ItemStack output = iRecipe.getResultItem();
+            //checks if there is a valid recipe in machine
+            if (iRecipe.matches(inv, level)) {
+                progress++;
             }
-            Optional<VibraniumForgeRecipe> recipe = level.getRecipeManager()
-                    .getRecipeFor(KbnsRecipeTypes.FORGE_RECIPE, inv, level);
-
-            recipe.ifPresent(iRecipe -> {
-                ItemStack output = iRecipe.getResultItem();
-
-
+            //checks if the time needed to produce result is equal to the time specified in json recipe
+            if (iRecipe.getCraftTime() <= progress) {
                 craftTheItem(output);
                 progress = 0;
-
-
-                setChanged();
-            });
-        }
+                energyStorage.consumeEnergy(2000);
+            }
+            setChanged();
+        });
     }
-    public void craftTheItem(ItemStack output) {
-        itemHandler.extractItem(0, 1, false);
-        itemHandler.extractItem(1, 1, false);
-        itemHandler.insertItem(2, output, false);
 
+    public void craftTheItem(ItemStack output) {
+        //inputs and outputs items into different slots
+        itemHandler.extractItem(0, 1, false);
+        itemHandler.extractItem(1, 4, false);
+        itemHandler.insertItem(2, output, false);
 
 
     }
@@ -150,14 +169,30 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
     @Override
     public void tick() {
 
-        if (level.isClientSide)
+        if (level.isClientSide){
             return;
-        craft();
-        energyStorage.consumeEnergy(200);
+        }
+        //uncomment to allow energy usage when i figure it out
+        //if(machineCanRun()){
+            craft();
+            energyStorage.consumeEnergy(10);
+            setChanged();
+            //UNCOMMENT THIS TOO
+            // }
+   }
 
-        progress ++ ;
-        setChanged();
+    private boolean machineCanRun(){
+
+        if (energyStored >= energyUsePerTick && energyStored >= 2000){
+            return true;
+        }
+            else {
+            return false;
+        }
+
+
     }
+
 }
 
 

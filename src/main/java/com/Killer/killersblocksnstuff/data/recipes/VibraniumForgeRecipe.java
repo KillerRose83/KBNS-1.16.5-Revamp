@@ -97,7 +97,7 @@ public class VibraniumForgeRecipe implements IVibraniumForgeRecipe {
         @Override
         public VibraniumForgeRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
             Ingredient[] ings = new Ingredient[buffer.readVarInt()];
-            NonNullList<Ingredient> inputs = NonNullList.withSize(2,Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(),Ingredient.EMPTY);
             for (int i = 0; i < ings.length; i++) {
                 inputs.add(i, ings[i]);
             }

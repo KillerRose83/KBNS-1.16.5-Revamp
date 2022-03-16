@@ -1,6 +1,5 @@
-package com.Killer.killersblocksnstuff.container;
+package com.Killer.killersblocksnstuff.common.container;
 
-import com.Killer.killersblocksnstuff.common.tileEntity.*;
 import com.Killer.killersblocksnstuff.core.init.*;
 import com.Killer.killersblocksnstuff.data.recipes.*;
 import com.Killer.killersblocksnstuff.util.*;
@@ -11,7 +10,6 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.energy.*;
 import net.minecraftforge.items.*;
 import net.minecraftforge.items.wrapper.*;
@@ -28,7 +26,7 @@ public class VibraniumForgeContainer extends Container {
         this.tileEntity = world.getBlockEntity(pos);
         playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
-        layoutPlayerInventorySlots(8, 86);
+        layoutPlayerInventorySlots(8, 84);
 
 
         if (tileEntity != null) {

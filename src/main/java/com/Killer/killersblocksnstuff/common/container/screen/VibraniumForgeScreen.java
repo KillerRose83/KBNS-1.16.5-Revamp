@@ -1,8 +1,7 @@
-package com.Killer.killersblocksnstuff.container.screen;
+package com.Killer.killersblocksnstuff.common.container.screen;
 
 import com.Killer.killersblocksnstuff.*;
-import com.Killer.killersblocksnstuff.common.tileEntity.*;
-import com.Killer.killersblocksnstuff.container.*;
+import com.Killer.killersblocksnstuff.common.container.*;
 import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.systems.*;
 import net.minecraft.client.gui.screen.inventory.*;

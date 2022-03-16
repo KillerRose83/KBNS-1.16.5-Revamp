@@ -1,13 +1,11 @@
 package com.Killer.killersblocksnstuff.common.Blocks;
 
+import com.Killer.killersblocksnstuff.common.container.*;
 import com.Killer.killersblocksnstuff.common.tileEntity.*;
-import com.Killer.killersblocksnstuff.container.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
-import net.minecraft.item.*;
-import net.minecraft.state.properties.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;

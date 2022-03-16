@@ -1,13 +1,13 @@
 package com.Killer.killersblocksnstuff;
 
 
+import com.Killer.killersblocksnstuff.common.container.*;
+import com.Killer.killersblocksnstuff.common.container.screen.*;
 import com.Killer.killersblocksnstuff.common.tileEntity.*;
-import com.Killer.killersblocksnstuff.container.*;
 import com.Killer.killersblocksnstuff.core.init.*;
 import com.Killer.killersblocksnstuff.data.recipes.*;
 import com.Killer.killersblocksnstuff.entity.*;
 import com.Killer.killersblocksnstuff.entity.render.*;
-import com.Killer.killersblocksnstuff.container.screen.*;
 import net.minecraft.client.gui.*;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;

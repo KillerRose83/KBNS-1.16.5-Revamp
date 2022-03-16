@@ -1,4 +1,4 @@
-package com.Killer.killersblocksnstuff.container;
+package com.Killer.killersblocksnstuff.common.container;
 
 import com.Killer.killersblocksnstuff.*;
 import net.minecraft.inventory.container.*;
