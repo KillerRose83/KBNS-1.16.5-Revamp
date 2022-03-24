@@ -1,0 +1,15 @@
+{
+  "type": "killersblocksnstuff:forging",
+  "ingredients": [
+    {
+      "item": "killersblocksnstuff:vibranium_powder"
+    },
+    {
+      "item": "killersblocksnstuff:vibranium_powder"
+    }
+  ],
+  "output": {
+    "item": "killersblocksnstuff:refined_vibranium_powder"
+  },
+  "craftTime": 100
+}

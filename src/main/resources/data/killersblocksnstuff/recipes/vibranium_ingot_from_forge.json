@@ -1,11 +1,11 @@
 {
-  "type": "killersblocksnstuff:forge",
+  "type": "killersblocksnstuff:forging",
   "ingredients": [
     {
-      "item": "killersblocksnstuff:vibranium_powder"
+      "item": "killersblocksnstuff:refined_vibranium_powder"
     },
     {
-      "item": "killersblocksnstuff:void_stone_powder"
+      "item": "killersblocksnstuff:refined_vibranium_powder"
     }
   ],
   "output": {

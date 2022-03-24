@@ -12,7 +12,7 @@ public class KbnsRecipeTypes {
             DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, KillersBlocksNStuff.MOD_ID);
 
     public static final RegistryObject<VibraniumForgeRecipe.Serializer> FORGE_SERIALIZER
-            = RECIPE_SERIALIZER.register("forge", VibraniumForgeRecipe.Serializer::new);
+            = RECIPE_SERIALIZER.register("forging", VibraniumForgeRecipe.Serializer::new);
 
     public static IRecipeType<VibraniumForgeRecipe> FORGE_RECIPE
             = new VibraniumForgeRecipe.VibraniumForgeRecipeType();

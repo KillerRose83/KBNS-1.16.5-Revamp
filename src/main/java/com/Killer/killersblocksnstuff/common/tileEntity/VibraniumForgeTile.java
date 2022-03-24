@@ -1,6 +1,7 @@
 package com.Killer.killersblocksnstuff.common.tileEntity;
 
 
+import com.Killer.killersblocksnstuff.common.Blocks.*;
 import com.Killer.killersblocksnstuff.data.recipes.*;
 import com.Killer.killersblocksnstuff.util.*;
 import net.minecraft.block.*;
@@ -22,16 +23,21 @@ import java.util.*;
 
 public class VibraniumForgeTile extends TileEntity implements ITickableTileEntity {
 
-    private ItemStackHandler itemHandler = createHandler();
-    private CustomEnergyStorage energyStorage = createEnergy();
-    private float progress;
-    private float energyStored;
-    private float energyUsePerTick;
+    private final ItemStackHandler itemHandler = createHandler();
 
+    private final CustomEnergyStorage energyStorage = createEnergy();
 
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
-    private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+    private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
+    public int progress;
+    public int clientProgress;
+    public int clientEnergy;
+
+    boolean flag;
+    private int energyUsePerTick = 10;
+    private int energyUsedPerItem = 2000;
+    private int delay;
 
 
     public VibraniumForgeTile(TileEntityType<?> p_i48289_1_) {
@@ -43,14 +49,43 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
     }
 
 
+    private CustomEnergyStorage createEnergy() {
+        return new CustomEnergyStorage(200000, 2000, 0) {
+            @Override
+            protected void onEnergyChanged() {
+                setChanged();
+            }
+
+        };
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+    public int getClientProgress() {
+        return clientProgress;
+    }
+
+    public void setClientProgress(int clientProgress) {
+        this.clientProgress = clientProgress;
+    }
+
+    public int getClientEnergy() {
+        return clientEnergy;
+    }
+
+    public void setClientEnergy(int clientEnergy) {
+        this.clientEnergy = clientEnergy;
+    }
+
+    public int getEnergy() {
+        return energyStorage.getEnergyStored();
+    }
+
     @Override
     public void load(BlockState state, CompoundNBT nbt) {
 
-        TileEntity te = level.getBlockEntity(getBlockPos());
-        if (te != null) {
-            LazyOptional<IEnergyStorage> capability = te.getCapability(CapabilityEnergy.ENERGY);
-            capability.ifPresent(handler -> handler.receiveEnergy(200, false));
-        }
         itemHandler.deserializeNBT(nbt.getCompound("inv"));
         energyStorage.deserializeNBT(nbt.getCompound("energy"));
 
@@ -73,8 +108,9 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
     @Override
     public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket packet) {
         super.onDataPacket(net, packet);
-        CompoundNBT tags = packet.getTag();
-        this.progress = tags.getInt("Progress");
+        CompoundNBT nbt = packet.getTag();
+        this.progress = nbt.getInt("Progress");
+        this.clientEnergy = nbt.getInt("clientEnergy");
 
     }
 
@@ -82,6 +118,7 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
     public CompoundNBT getUpdateTag() {
         CompoundNBT nbt = super.getUpdateTag();
         nbt.putInt("Progress", (int) this.progress);
+        nbt.putInt("clientEnergy", (int) this.clientEnergy);
         return nbt;
     }
 
@@ -106,14 +143,7 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
         };
     }
 
-    private CustomEnergyStorage createEnergy() {
-        return new CustomEnergyStorage(20000, 200) {
-            @Override
-            protected void onEnergyChanged() {
-                setChanged();
-            }
-        };
-    }
+
 
     @Nonnull
     @Override
@@ -140,19 +170,27 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
         }
         Optional<VibraniumForgeRecipe> recipe = level.getRecipeManager()
                 .getRecipeFor(KbnsRecipeTypes.FORGE_RECIPE, inv, level);
-
+        flag = false;
+        progress--;
+        crafting();
         recipe.ifPresent(iRecipe -> {
             ItemStack output = iRecipe.getResultItem();
             //checks if there is a valid recipe in machine
+            flag = true;
             if (iRecipe.matches(inv, level)) {
                 progress++;
+                progress++;
+                crafting();
+
             }
             //checks if the time needed to produce result is equal to the time specified in json recipe
             if (iRecipe.getCraftTime() <= progress) {
                 craftTheItem(output);
-                progress = 0;
-                energyStorage.consumeEnergy(2000);
+                flag = false;
+                delay = 50;
             }
+
+
             setChanged();
         });
     }
@@ -160,40 +198,48 @@ public class VibraniumForgeTile extends TileEntity implements ITickableTileEntit
     public void craftTheItem(ItemStack output) {
         //inputs and outputs items into different slots
         itemHandler.extractItem(0, 1, false);
-        itemHandler.extractItem(1, 4, false);
+        itemHandler.extractItem(1, 1, false);
         itemHandler.insertItem(2, output, false);
+        energyStorage.consumeEnergy(energyUsedPerItem);
+        progress = 0;
+        flag = false;
 
 
     }
 
     @Override
     public void tick() {
-
-        if (level.isClientSide){
+        if (level.isClientSide) {
             return;
         }
+
         //uncomment to allow energy usage when i figure it out
-        //if(machineCanRun()){
-            craft();
-            energyStorage.consumeEnergy(10);
-            setChanged();
-            //UNCOMMENT THIS TOO
-            // }
-   }
-
-    private boolean machineCanRun(){
-
-        if (energyStored >= energyUsePerTick && energyStored >= 2000){
-            return true;
+        if(getEnergy() > energyUsedPerItem+energyUsePerTick){
+        craft();
+        //UNCOMMENT THIS TOO
         }
-            else {
-            return false;
-        }
-
-
+        delay--;
+        crafting();
+        energyStorage.consumeEnergy(10);
+        setChanged();
     }
 
-}
+    protected void crafting() {
+        if (flag) {
+            level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(VibraniumForgeBlock.LIT, true), 3);
+        } else if (delay <= 0) {
+            level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(VibraniumForgeBlock.LIT, false), 3);
+        }
+    }
 
+    protected boolean canOutput() {
+        if (itemHandler.getSlotLimit(2)>64) {
+            return false;
+        } else if (itemHandler.getSlotLimit(2) <= 63) {
+            return true;
+        }
+        return true;
+    }
+}
 
 

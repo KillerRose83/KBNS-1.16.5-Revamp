@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "killersblocksnstuff:vibranium_powder"
-  },
-  "result": "killersblocksnstuff:refined_vibranium_powder",
-  "experience": 1,
-  "cookingtime": 200
-}

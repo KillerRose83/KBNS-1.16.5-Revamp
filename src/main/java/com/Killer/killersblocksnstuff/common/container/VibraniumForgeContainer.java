@@ -1,7 +1,6 @@
 package com.Killer.killersblocksnstuff.common.container;
 
 import com.Killer.killersblocksnstuff.core.init.*;
-import com.Killer.killersblocksnstuff.data.recipes.*;
 import com.Killer.killersblocksnstuff.util.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
@@ -19,10 +18,14 @@ public class VibraniumForgeContainer extends Container {
     private final TileEntity tileEntity;
     private final PlayerEntity playerEntity;
     private final IItemHandler playerInventory ;
-;
+    private IIntArray fields;
 
-    public VibraniumForgeContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
+
+
+    public VibraniumForgeContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player, IIntArray fields) {
         super(KbnsContainers.VIBRANIUM_FORGE_CONTAINER.get(), windowId);
+        this.fields = fields;
+
         this.tileEntity = world.getBlockEntity(pos);
         playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
@@ -38,6 +41,7 @@ public class VibraniumForgeContainer extends Container {
         }
         trackPower();
     }
+
 
 
 
@@ -78,13 +82,6 @@ public class VibraniumForgeContainer extends Container {
     public int getEnergy() {
         return tileEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
-
-
-
-    protected int getCraftingTime(VibraniumForgeRecipe recipe){
-        return recipe.craftTime;
-    }
-
 
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {

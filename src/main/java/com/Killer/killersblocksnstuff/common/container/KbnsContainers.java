@@ -18,7 +18,7 @@ public class KbnsContainers {
             () -> IForgeContainerType.create(((windowId, inv, data) -> {
                 BlockPos pos = data.readBlockPos();
                 World world = inv.player.getCommandSenderWorld();
-                return new VibraniumForgeContainer(windowId, world, pos, inv, inv.player);
+                return new VibraniumForgeContainer(windowId, world, pos, inv, inv.player, null);
             })));
 
 

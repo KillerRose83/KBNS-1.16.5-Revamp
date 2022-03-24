@@ -8,16 +8,18 @@ import com.Killer.killersblocksnstuff.core.init.*;
 import com.Killer.killersblocksnstuff.data.recipes.*;
 import com.Killer.killersblocksnstuff.entity.*;
 import com.Killer.killersblocksnstuff.entity.render.*;
+import net.minecraft.block.*;
 import net.minecraft.client.gui.*;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.event.*;
+import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.client.registry.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.*;
+import net.minecraftforge.fml.event.server.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,4 +61,28 @@ public class KillersBlocksNStuff {
 
         RenderingRegistry.registerEntityRenderingHandler(KbnsEntityTypes.MINI_BOSS.get(), MiniBossRenderer::new);
     }
+
+    private void enqueueIMC(final InterModEnqueueEvent event) {
+    }
+
+    private void processIMC(final InterModProcessEvent event) {
+
+    }
+
+    @SubscribeEvent
+    public void onServerStarting(FMLServerStartingEvent event) {
+        // do something when the server starts
+        LOGGER.info("HELLO from server starting");
+    }
+
+
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
+            // register a new block here
+            LOGGER.info("HELLO from Register Block");
+        }
+    }
+
 }

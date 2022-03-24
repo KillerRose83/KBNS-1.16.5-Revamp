@@ -20,6 +20,7 @@
 
 
   "screen.killersblocksnstuff.vibranium_forge":"Forge",
+  "tile.killersblocksnstuff.vibranium_forge":"Forge",
 
 
   "item.killersblocksnstuff.vibranium_powder": "Vibranium Powder",
@@ -42,11 +43,16 @@
   "item.killersblocksnstuff.vibranium_leggings": "Vibranium Leggings",
   "item.killersblocksnstuff.vibranium_boots": "Vibranium Boots",
 
-  "tooltip.killersblocksnstuff.enchantedapple_shift":"§7Might give you a few buffs...",
-  "tooltip.killersblocksnstuff.haste_food_shift":"§7Sweet and speedy",
-  "tooltip.killersblocksnstuff.enchantedapple":"§7Hold \u00A7eSHIFT\u00A77 for more info",
-  "tooltip.killersblocksnstuff.haste_food":"§7Hold \u00A7eSHIFT\u00A77 for more info",
-  "tooltip.killersblocksnstuff.sword":"\u00A77Sets targets on fire as well as weakening them. But be careful you might suffer the same fate... §7Hold §eSHIFT§r for more info",
+  "tooltip.killersblocksnstuff.enchantedapple_shift":"",
+  "tooltip.killersblocksnstuff.haste_food_shift":"",
+  "tooltip.killersblocksnstuff.enchantedapple":"§7Might give you a few buffs...",
+  "tooltip.killersblocksnstuff.haste_food":"§7Sweet and speedy",
+  "tooltip.killersblocksnstuff.vibranium_powder_shift":"",
+  "tooltip.killersblocksnstuff.vibranium_powder":"§7Other worldly substance, seems... alien. Found in the End",
+  "tooltip.killersblocksnstuff.forge_shift":"§7Power consumption: 10FE/t, 2000FE per item forged",
+  "tooltip.killersblocksnstuff.forge":"§7Used for simple material refining",
+
+  "tooltip.killersblocksnstuff.sword":"§7Sets targets on fire as well as weakening them.\n But be careful you might suffer the same fate... \n §7Hold §eSHIFT§r for more info",
   "tooltip.killersblocksnstuff.sword_shift":"§7Forged from a mysterious material found in the depths of the abyss..."
 
 
